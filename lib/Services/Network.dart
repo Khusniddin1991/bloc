@@ -12,8 +12,8 @@ class Network {
   /* Http Apis */
 
   static String API_LIST = "/api/famly";
-  static String API_CREATE = "/posts";
-  static String API_UPDATE = "/posts/"; //{id}
+  static String API_CREATE = "/api/famly";
+  static String API_UPDATE = "/api/famly"; //{id}
   static String API_DELETE = "/api/famly/"; //{id}
 
   /* Http Requests */
@@ -62,23 +62,21 @@ class Network {
     return params;
   }
 
-  static Map<String, dynamic> paramsCreate(Post post) {
+  static Map<String, dynamic> paramsCreate(User post) {
     Map<String, String> params = new Map();
     params.addAll({
-      'title': post.title,
-      'body': post.body,
-      'userId': post.userId.toString(),
+      'title': post.name,
+      'body': post.fullname,
     });
     return params;
   }
 
-  static Map<String, String> paramsUpdate(Post post) {
+  static Map<String, String> paramsUpdate(User post) {
     Map<String, String> params = new Map();
     params.addAll({
       'id': post.id.toString(),
-      'title': post.title,
-      'body': post.body,
-      'userId': post.userId.toString(),
+      'title': post.fullname,
+      'body': post.name,
     });
     return params;
   }

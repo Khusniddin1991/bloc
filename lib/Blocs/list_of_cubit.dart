@@ -2,7 +2,10 @@
 
 import 'package:blocapp/Model/Post.dart';
 import 'package:blocapp/Model/UserContacts.dart';
+import 'package:blocapp/Pages/createPage.dart';
 import 'package:blocapp/Services/Network.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'listpost_bloc_state.dart';
@@ -29,6 +32,13 @@ class ListPostCubit extends Cubit<ListPostsState>{
       apiPostList();
     } else {
       emit(ListPostError(error: "Couldn't delete post"));
+    }
+  }
+  void callCreatePage(BuildContext context) async {
+    var results = await Navigator.of(context)
+        .push(MaterialPageRoute(builder: (context) => CreatePage()));
+    if (results != null) {
+      BlocProvider.of<ListPostCubit>(context).apiPostList();
     }
   }
 

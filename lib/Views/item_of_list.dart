@@ -1,6 +1,7 @@
 import 'package:blocapp/Blocs/list_of_cubit.dart';
 import 'package:blocapp/Model/Post.dart';
 import 'package:blocapp/Model/UserContacts.dart';
+import 'package:blocapp/Pages/pages.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -33,7 +34,9 @@ Widget itemOfPost(User post, BuildContext context) {
         caption: 'Update',
         color: Colors.indigo,
         icon: Icons.edit,
-        onTap: () {},
+        onTap: () {
+
+        },
       ),
     ],
     secondaryActions: <Widget>[
@@ -42,7 +45,7 @@ Widget itemOfPost(User post, BuildContext context) {
         color: Colors.red,
         icon: Icons.delete,
         onTap: () {
-          BlocProvider.of<ListPostCubit>(context).apiPostDelete(post);
+          BlocProvider.of<ListPostCubit>(context).callCreatePage(context);
         },
       ),
     ],

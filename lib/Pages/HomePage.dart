@@ -15,6 +15,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import 'createPage.dart';
+
 class HomePage extends StatefulWidget {
   static final String id = "home_page";
 
@@ -52,10 +54,12 @@ class _HomePageState extends State<HomePage> {
           },
         ),
         floatingActionButton: FloatingActionButton(
+
           backgroundColor: Colors.blue,
           foregroundColor: Colors.white,
           onPressed: () {
-            // BlocProvider.of<ListPostCubit>(context).callCreatePage(context);
+            BlocProvider.of<ListPostCubit>(context).callCreatePage(context);
+
           },
           child: Icon(Icons.add),
         ));
